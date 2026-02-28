@@ -222,6 +222,18 @@ const music=document.getElementById("bgMusic");
 music.play();
 }
 
+function createHeart(){
+const heart=document.createElement("div");
+heart.className="heart";
+heart.style.left=Math.random()*100+"vw";
+heart.innerHTML="❤️";
+heart.style.fontSize=(15+Math.random()*25)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),8000);
+}
+setInterval(createHeart,500);
+
+  
 </script>
 
 </body>
