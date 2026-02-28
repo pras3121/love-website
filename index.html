@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Little Gift For You ❤️</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;} 
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
 
 body{
 min-height:100vh;
@@ -28,7 +28,7 @@ position:relative;
 100%{background-position:0% 50%;}
 }
 
-/* 💜 Floating Hearts */
+/* Hearts */
 .hearts-container{
 position:fixed;
 top:0;
@@ -105,7 +105,7 @@ font-weight:bold;
 display:block;
 }
 
-/* 💜 Animated Buttons */
+/* Buttons */
 button{
 padding:12px 25px;
 border:none;
@@ -205,21 +205,14 @@ and less than tomorrow 💕
 
 <div class="gallery">
 <h2 style="margin-top:25px;">Our Beautiful Memories 📸</h2>
-
 <img src="IMG20250921153808.jpg">
 <img src="17986059239752660.webp">
 <img src="18081930071025299.webp">
-<img src="IMG20250921153814.jpg">
-<img src="IMG20250921154210.jpg">
-<img src="IMG20260124190224.jpg">
-<img src="IMG_20260124_190145.jpg">
 
 <h2 style="margin-top:25px;">Our Special Videos 🎥</h2>
-
 <video controls>
 <source src="18050343764386786.mp4" type="video/mp4">
 </video>
-
 <video controls>
 <source src="VID20250907161107.mp4" type="video/mp4">
 </video>
@@ -228,6 +221,7 @@ and less than tomorrow 💕
 </div>
 </div>
 
+<!-- Background Music -->
 <audio id="bgMusic" loop>
 <source src="Ek_Pyar_Ka_Nagma_Hai.mp3" type="audio/mpeg">
 </audio>
@@ -235,7 +229,6 @@ and less than tomorrow 💕
 <div class="music-icon" onclick="playMusic()">🎵</div>
 
 <script>
-
 /* Countdown */
 const meetingDate=new Date("March 02, 2026 11:00:00").getTime();
 
@@ -253,24 +246,26 @@ document.getElementById("days").textContent=Math.floor(distance/(1000*60*60*24))
 document.getElementById("hours").textContent=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 document.getElementById("minutes").textContent=Math.floor((distance%(1000*60*60))/(1000*60));
 document.getElementById("seconds").textContent=Math.floor((distance%(1000*60))/1000);
-
 },1000);
 
+/* Open Heart + Show Gallery */
 function openHeart(){
 document.getElementById("finalMessage").style.display="block";
+playMusic(); // optional auto play
 }
 
+/* Play / Pause Music */
 function playMusic(){
-document.getElementById("bgMusic").play();
+const music=document.getElementById("bgMusic");
+if(music.paused){ music.play(); } else { music.pause(); }
 }
 
-/* 💜 Purple Floating Hearts */
+/* Floating Hearts */
 function createHeart(){
 const heart=document.createElement("div");
 heart.classList.add("heart");
 
 const colors=["#6a0dad","#8a2be2","#4b0082","#9370db","#b19cd9"];
-
 heart.innerHTML="❤";
 heart.style.left=Math.random()*100+"vw";
 heart.style.fontSize=(15+Math.random()*25)+"px";
@@ -278,12 +273,10 @@ heart.style.color=colors[Math.floor(Math.random()*colors.length)];
 heart.style.animationDuration=(6+Math.random()*4)+"s";
 
 document.getElementById("hearts").appendChild(heart);
-
 setTimeout(()=>heart.remove(),10000);
 }
 
 setInterval(createHeart,400);
-
 </script>
 
 </body>
