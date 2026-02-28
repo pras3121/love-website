@@ -39,7 +39,6 @@ overflow:hidden;
 pointer-events:none;
 z-index:0;
 }
-
 .heart{
 position:absolute;
 bottom:-20px;
@@ -47,7 +46,6 @@ animation:floatUp linear forwards;
 opacity:0.9;
 text-shadow:0 0 10px rgba(138,43,226,0.9);
 }
-
 @keyframes floatUp{
 0%{transform:translateY(0) scale(1);opacity:0.9;}
 100%{transform:translateY(-110vh) scale(1.7);opacity:0;}
@@ -71,7 +69,6 @@ font-size:2.2em;
 margin-bottom:15px;
 animation:glow 2s infinite alternate;
 }
-
 @keyframes glow{
 from{text-shadow:0 0 10px #fff;}
 to{text-shadow:0 0 25px #8a2be2;}
@@ -91,14 +88,12 @@ gap:15px;
 flex-wrap:wrap;
 margin-bottom:25px;
 }
-
 .box{
 background:rgba(255,255,255,0.15);
 padding:15px 20px;
 border-radius:20px;
 min-width:80px;
 }
-
 .box span{
 font-size:1.8em;
 font-weight:bold;
@@ -120,13 +115,11 @@ animation:buttonMove 6s ease infinite;
 transition:0.3s;
 box-shadow:0 0 15px rgba(138,43,226,0.6);
 }
-
 @keyframes buttonMove{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
 }
-
 button:hover{
 transform:scale(1.1);
 box-shadow:0 0 25px rgba(138,43,226,1);
@@ -140,24 +133,20 @@ font-size:1.3em;
 animation:fadeIn 1.5s forwards;
 }
 
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
-}
-
+/* Gallery */
 .gallery img{
 width:100%;
 max-width:250px;
 border-radius:15px;
 margin:10px;
 }
-
 .gallery video{
 width:100%;
 border-radius:20px;
 margin-top:15px;
 }
 
+/* Music Icon */
 .music-icon{
 position:fixed;
 bottom:20px;
@@ -173,7 +162,6 @@ z-index:3;
 }
 </style>
 </head>
-
 <body>
 
 <div class="hearts-container" id="hearts"></div>
@@ -184,6 +172,7 @@ z-index:3;
 <p class="message">
 This page is not just a countdown…  
 It’s every heartbeat waiting to see you again.  
+Every second without you has been preparing me for that one perfect moment —  
 02 March 2026, 11:00 AM 💕
 </p>
 
@@ -205,25 +194,31 @@ and less than tomorrow 💕
 
 <div class="gallery">
 <h2 style="margin-top:25px;">Our Beautiful Memories 📸</h2>
+
 <img src="IMG20250921153808.jpg">
 <img src="17986059239752660.webp">
 <img src="18081930071025299.webp">
+<img src="IMG20250921153814.jpg">
+<img src="IMG20250921154210.jpg">
+<img src="IMG20260124190224.jpg">
+<img src="IMG_20260124_190145.jpg">
 
 <h2 style="margin-top:25px;">Our Special Videos 🎥</h2>
+
 <video controls>
 <source src="18050343764386786.mp4" type="video/mp4">
 </video>
+
 <video controls>
 <source src="VID20250907161107.mp4" type="video/mp4">
 </video>
-
 </div>
 </div>
 </div>
 
 <!-- Background Music -->
 <audio id="bgMusic" loop>
-<source src="Ek_Pyar_Ka_Nagma_Hai.mp3" type="audio/mpeg">
+<source src="Ek_Pyar_Ka_Nagma_Hai___Lyrical___Carvaan_Lounge___Neeti_Mohan___Papon___Arko___Anupriya_Goenka(0).mp3" type="audio/mpeg">
 </audio>
 
 <div class="music-icon" onclick="playMusic()">🎵</div>
@@ -231,51 +226,44 @@ and less than tomorrow 💕
 <script>
 /* Countdown */
 const meetingDate=new Date("March 02, 2026 11:00:00").getTime();
-
 setInterval(function(){
 const now=new Date().getTime();
 const distance=meetingDate-now;
-
 if(distance<=0){
 document.getElementById("countdown").innerHTML=
 "<h2>It’s 11:00 AM 💕<br>The wait is finally over ❤️</h2>";
 return;
 }
-
 document.getElementById("days").textContent=Math.floor(distance/(1000*60*60*24));
 document.getElementById("hours").textContent=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 document.getElementById("minutes").textContent=Math.floor((distance%(1000*60*60))/(1000*60));
 document.getElementById("seconds").textContent=Math.floor((distance%(1000*60))/1000);
 },1000);
 
-/* Open Heart + Show Gallery */
+/* Open Heart Section */
 function openHeart(){
 document.getElementById("finalMessage").style.display="block";
-playMusic(); // optional auto play
 }
 
-/* Play / Pause Music */
+/* Play Music */
 function playMusic(){
 const music=document.getElementById("bgMusic");
-if(music.paused){ music.play(); } else { music.pause(); }
+music.play();
 }
 
 /* Floating Hearts */
 function createHeart(){
 const heart=document.createElement("div");
 heart.classList.add("heart");
-
 const colors=["#6a0dad","#8a2be2","#4b0082","#9370db","#b19cd9"];
 heart.innerHTML="❤";
 heart.style.left=Math.random()*100+"vw";
 heart.style.fontSize=(15+Math.random()*25)+"px";
 heart.style.color=colors[Math.floor(Math.random()*colors.length)];
 heart.style.animationDuration=(6+Math.random()*4)+"s";
-
 document.getElementById("hearts").appendChild(heart);
 setTimeout(()=>heart.remove(),10000);
 }
-
 setInterval(createHeart,400);
 </script>
 
