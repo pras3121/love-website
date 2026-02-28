@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-<title>A Little Gift For You ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultimate Love Countdown ❤️</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;} 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
 
 body{
 min-height:100vh;
@@ -17,8 +22,8 @@ text-align:center;
 color:white;
 background:linear-gradient(135deg,#ff4e8a,#ff9a9e,#c471ed,#12c2e9);
 background-size:400% 400%;
-animation:bgMove 15s ease infinite;
-overflow:auto;
+animation:bgMove 18s ease infinite;
+overflow:hidden;
 position:relative;
 }
 
@@ -28,97 +33,86 @@ position:relative;
 100%{background-position:0% 50%;}
 }
 
-/* 💜 Floating Hearts */
-.hearts-container{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-overflow:hidden;
-pointer-events:none;
-z-index:0;
-}
-
+/* Floating Hearts */
 .heart{
-position:absolute;
-bottom:-20px;
-animation:floatUp linear forwards;
-opacity:0.9;
-text-shadow:0 0 10px rgba(138,43,226,0.9);
+position:fixed;
+bottom:-50px;
+animation:floatUp 8s linear forwards;
+pointer-events:none;
 }
 
 @keyframes floatUp{
-0%{transform:translateY(0) scale(1);opacity:0.9;}
-100%{transform:translateY(-110vh) scale(1.7);opacity:0;}
+0%{transform:translateY(0) rotate(0deg); opacity:1;}
+100%{transform:translateY(-110vh) rotate(360deg); opacity:0;}
 }
 
 /* Card */
 .card{
-background:rgba(255,255,255,0.12);
-backdrop-filter:blur(25px);
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(30px);
+border:1px solid rgba(255,255,255,0.3);
 padding:40px;
-border-radius:30px;
-box-shadow:0 0 50px rgba(255,255,255,0.2);
-max-width:700px;
-width:90%;
-position:relative;
+border-radius:40px;
+box-shadow:0 0 60px rgba(255,255,255,0.3);
+max-width:900px;
+width:95%;
 z-index:2;
 }
 
+/* Half Fonts */
 h1{
-font-size:2.2em;
-margin-bottom:15px;
+font-size:2.5em;
+margin-bottom:20px;
 animation:glow 2s infinite alternate;
 }
 
 @keyframes glow{
 from{text-shadow:0 0 10px #fff;}
-to{text-shadow:0 0 25px #8a2be2;}
+to{text-shadow:0 0 25px #ff4f81;}
 }
 
 .message{
-font-size:1.1em;
+font-size:1.4em;
 margin-bottom:25px;
 line-height:1.6;
 }
 
-/* Countdown */
 .countdown{
 display:flex;
 justify-content:center;
-gap:15px;
+gap:20px;
 flex-wrap:wrap;
-margin-bottom:25px;
+margin-bottom:30px;
 }
 
 .box{
-background:rgba(255,255,255,0.15);
-padding:15px 20px;
-border-radius:20px;
-min-width:80px;
+background:rgba(255,255,255,0.25);
+padding:20px 30px;
+border-radius:30px;
+min-width:120px;
+font-size:1em;
+box-shadow:0 0 20px rgba(255,255,255,0.4);
 }
 
 .box span{
-font-size:1.8em;
+font-size:1.5em;
 font-weight:bold;
 display:block;
 }
 
-/* 💜 Animated Buttons */
+/* Buttons */
 button{
-padding:12px 25px;
+padding:15px 35px;
 border:none;
-border-radius:30px;
+border-radius:50px;
+background:linear-gradient(270deg,#8e2de2,#4a00e0,#ff00cc,#3333ff);
+background-size:600% 600%;
+animation:buttonMove 6s ease infinite;
 color:white;
 font-size:1em;
 cursor:pointer;
-margin:5px;
-background:linear-gradient(270deg,#6a0dad,#8a2be2,#4b0082,#9370db);
-background-size:600% 600%;
-animation:buttonMove 6s ease infinite;
 transition:0.3s;
-box-shadow:0 0 15px rgba(138,43,226,0.6);
+margin:10px;
 }
 
 @keyframes buttonMove{
@@ -129,15 +123,14 @@ box-shadow:0 0 15px rgba(138,43,226,0.6);
 
 button:hover{
 transform:scale(1.1);
-box-shadow:0 0 25px rgba(138,43,226,1);
+box-shadow:0 0 25px rgba(255,255,255,0.8);
 }
 
-/* Final message */
 .final{
 display:none;
-margin-top:20px;
-font-size:1.3em;
-animation:fadeIn 1.5s forwards;
+margin-top:30px;
+font-size:1.5em;
+animation:fadeIn 2s forwards;
 }
 
 @keyframes fadeIn{
@@ -145,38 +138,23 @@ from{opacity:0;}
 to{opacity:1;}
 }
 
-.gallery img{
-width:100%;
-max-width:250px;
-border-radius:15px;
-margin:10px;
-}
-
-.gallery video{
-width:100%;
-border-radius:20px;
-margin-top:15px;
-}
-
+/* Music Icon */
 .music-icon{
 position:fixed;
 bottom:20px;
 right:20px;
-background:linear-gradient(270deg,#6a0dad,#8a2be2,#4b0082,#9370db);
-background-size:600% 600%;
-animation:buttonMove 6s ease infinite;
+background:#8e2de2;
 padding:12px;
 border-radius:50%;
 cursor:pointer;
-box-shadow:0 0 15px rgba(0,0,0,0.3);
-z-index:3;
+box-shadow:0 0 15px rgba(0,0,0,0.4);
+font-size:20px;
 }
+
 </style>
 </head>
 
 <body>
-
-<div class="hearts-container" id="hearts"></div>
 
 <div class="card">
 <h1>For The Most Beautiful Soulmate ❤️</h1>
@@ -202,34 +180,13 @@ No matter how long the wait…
 You are worth every second ❤️  
 I love you more than yesterday,  
 and less than tomorrow 💕
-
-<div class="gallery">
-<h2 style="margin-top:25px;">Our Beautiful Memories 📸</h2>
-
-<img src="IMG20250921153808.jpg">
-<img src="17986059239752660.webp">
-<img src="18081930071025299.webp">
-<img src="IMG20250921153814.jpg">
-<img src="IMG20250921154210.jpg">
-<img src="IMG20260124190224.jpg">
-<img src="IMG_20260124_190145.jpg">
-
-<h2 style="margin-top:25px;">Our Special Videos 🎥</h2>
-
-<video controls>
-<source src="18050343764386786.mp4" type="video/mp4">
-</video>
-
-<video controls>
-<source src="VID20250907161107.mp4" type="video/mp4">
-</video>
-
-</div>
-</div>
 </div>
 
+</div>
+
+<!-- Background Music -->
 <audio id="bgMusic" loop>
-<source src="Ek_Pyar_Ka_Nagma_Hai.mp3" type="audio/mpeg">
+<source src="song.mp3" type="audio/mpeg">
 </audio>
 
 <div class="music-icon" onclick="playMusic()">🎵</div>
@@ -237,51 +194,54 @@ and less than tomorrow 💕
 <script>
 
 /* Countdown */
-const meetingDate=new Date("March 02, 2026 11:00:00").getTime();
+const meetingDate = new Date("March 02, 2026 11:00:00").getTime();
 
 setInterval(function(){
 const now=new Date().getTime();
 const distance=meetingDate-now;
 
 if(distance<=0){
-document.getElementById("countdown").innerHTML=
-"<h2>It’s 11:00 AM 💕<br>The wait is finally over ❤️</h2>";
+document.getElementById("countdown").innerHTML =
+"<h2 style='font-size:2em;'>It’s 11:00 AM 💕<br>The wait is finally over ❤️</h2>";
 return;
 }
 
-document.getElementById("days").textContent=Math.floor(distance/(1000*60*60*24));
-document.getElementById("hours").textContent=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-document.getElementById("minutes").textContent=Math.floor((distance%(1000*60*60))/(1000*60));
-document.getElementById("seconds").textContent=Math.floor((distance%(1000*60))/1000);
+const d=Math.floor(distance/(1000*60*60*24));
+const h=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const m=Math.floor((distance%(1000*60*60))/(1000*60));
+const s=Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("days").textContent=d;
+document.getElementById("hours").textContent=h;
+document.getElementById("minutes").textContent=m;
+document.getElementById("seconds").textContent=s;
 
 },1000);
 
+/* Show Message */
 function openHeart(){
 document.getElementById("finalMessage").style.display="block";
 }
 
+/* Play Music */
 function playMusic(){
-document.getElementById("bgMusic").play();
+const music=document.getElementById("bgMusic");
+music.play();
 }
 
-/* 💜 Purple Floating Hearts */
+/* Floating Purple Hearts */
+const heartColors=["#a020f0","#8a2be2","#9370db","#ba55d3","#da70d6"];
+
 function createHeart(){
 const heart=document.createElement("div");
-heart.classList.add("heart");
-
-const colors=["#6a0dad","#8a2be2","#4b0082","#9370db","#b19cd9"];
-
-heart.innerHTML="❤";
+heart.className="heart";
 heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(15+Math.random()*25)+"px";
-heart.style.color=colors[Math.floor(Math.random()*colors.length)];
-heart.style.animationDuration=(6+Math.random()*4)+"s";
-
-document.getElementById("hearts").appendChild(heart);
-
-setTimeout(()=>heart.remove(),10000);
+heart.innerHTML="💜";
+heart.style.color=heartColors[Math.floor(Math.random()*heartColors.length)];
+heart.style.fontSize=(20+Math.random()*25)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),8000);
 }
-
 setInterval(createHeart,400);
 
 </script>
