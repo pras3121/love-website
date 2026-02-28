@@ -222,16 +222,29 @@ const music=document.getElementById("bgMusic");
 music.play();
 }
 
+/* Floating Hearts */
 function createHeart(){
-const heart=document.createElement("div");
-heart.className="heart";
-heart.style.left=Math.random()*100+"vw";
-heart.innerHTML="❤️";
-heart.style.fontSize=(15+Math.random()*25)+"px";
-document.body.appendChild(heart);
-setTimeout(()=>heart.remove(),8000);
+
+const heart = document.createElement("div");
+heart.classList.add("heart");
+
+const colors = ["#ff4f81","#ff9a9e","#ff2e6d","#ffffff","#ffd1dc"];
+heart.innerHTML = "❤";
+
+heart.style.left = Math.random() * 100 + "vw";
+heart.style.fontSize = (15 + Math.random() * 25) + "px";
+heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+heart.style.animationDuration = (6 + Math.random() * 4) + "s";
+
+document.getElementById("hearts").appendChild(heart);
+
+setTimeout(() => {
+heart.remove();
+}, 10000);
+
 }
-setInterval(createHeart,500);
+
+setInterval(createHeart, 400);
 
   
 </script>
