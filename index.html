@@ -216,10 +216,9 @@ and less than tomorrow 💕
 </div>
 
 <!-- Background Music -->
-<audio id="bgMusic" loop>
+<audio id="bgMusic" loop autoplay muted>
 <source src="Soulful_Love_Mashup_-_PINOOR___Arijit_Singh___A_R_Rahman___Love_Songs(256k).mp3" type="audio/mpeg">
 </audio>
-
 <div class="music-icon" onclick="playMusic()">🎵</div>
 
 <script>
@@ -264,6 +263,28 @@ document.getElementById("hearts").appendChild(heart);
 setTimeout(()=>heart.remove(),10000);
 }
 setInterval(createHeart,400);
+
+<script>
+window.addEventListener("load", function(){
+const music = document.getElementById("bgMusic");
+
+// Try autoplay
+music.play().then(()=>{
+music.muted = false; // Unmute after start
+}).catch(()=>{
+// If blocked, wait for first touch
+document.body.addEventListener("click", function(){
+music.muted = false;
+music.play();
+},{ once:true });
+});
+});
+
+  
+</script>
+
+
+  
 </script>
 
 </body>
