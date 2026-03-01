@@ -215,78 +215,66 @@ and less than tomorrow 💕
 </div>
 </div>
 
-<!-- Background Music -->
 <audio id="bgMusic" loop autoplay muted>
 <source src="Soulful_Love_Mashup_-_PINOOR___Arijit_Singh___A_R_Rahman___Love_Songs(256k).mp3" type="audio/mpeg">
 </audio>
+
 <div class="music-icon" onclick="playMusic()">🎵</div>
 
 <script>
-/* Countdown */
 const meetingDate=new Date("March 02, 2026 11:00:00").getTime();
+
 setInterval(function(){
 const now=new Date().getTime();
 const distance=meetingDate-now;
+
 if(distance<=0){
 document.getElementById("countdown").innerHTML=
 "<h2>It’s 11:00 AM 💕<br>The wait is finally over ❤️</h2>";
 return;
 }
+
 document.getElementById("days").textContent=Math.floor(distance/(1000*60*60*24));
 document.getElementById("hours").textContent=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 document.getElementById("minutes").textContent=Math.floor((distance%(1000*60*60))/(1000*60));
 document.getElementById("seconds").textContent=Math.floor((distance%(1000*60))/1000);
+
 },1000);
 
-/* Open Heart Section */
 function openHeart(){
 document.getElementById("finalMessage").style.display="block";
 }
 
-/* Play Music */
 function playMusic(){
 const music=document.getElementById("bgMusic");
+music.muted=false;
 music.play();
 }
 
-/* Floating Hearts */
 function createHeart(){
 const heart=document.createElement("div");
 heart.classList.add("heart");
-const colors=["#6a0dad","#8a2be2","#4b0082","#9370db","#b19cd9"];
 heart.innerHTML="❤";
 heart.style.left=Math.random()*100+"vw";
 heart.style.fontSize=(15+Math.random()*25)+"px";
-heart.style.color=colors[Math.floor(Math.random()*colors.length)];
 heart.style.animationDuration=(6+Math.random()*4)+"s";
 document.getElementById("hearts").appendChild(heart);
 setTimeout(()=>heart.remove(),10000);
 }
 setInterval(createHeart,400);
 
-<script>
 window.addEventListener("load", function(){
-const music = document.getElementById("bgMusic");
-
-// Try autoplay
+const music=document.getElementById("bgMusic");
 music.play().then(()=>{
-music.muted = false; // Unmute after start
+music.muted=false;
 }).catch(()=>{
-// If blocked, wait for first touch
 document.body.addEventListener("click", function(){
-music.muted = false;
+music.muted=false;
 music.play();
 },{ once:true });
 });
 });
-
-  
-</script>
-
-
-  
 </script>
 
 </body>
 </html>
-
